@@ -1,0 +1,1 @@
+enum NxColor { primary, accent }

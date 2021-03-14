@@ -35,15 +35,15 @@ class NxButton extends StatelessWidget {
     this.isLoading = false
   }) : super(key: key);
 
-  factory NxButton.primary(
+  factory NxButton.primary({
     String text,
     Function onPressed,
     double padding,
     double fontSize,
     IconData icon,
     double radius,
-    bool isLoading
-  ) => NxButton(
+    bool isLoading = false
+  }) => NxButton(
     onPressed: onPressed,
     padding: padding,
     fontSize: fontSize,
@@ -55,15 +55,15 @@ class NxButton extends StatelessWidget {
     isLoading: isLoading
   );
   
-  factory NxButton.accent(
+  factory NxButton.accent({
     String text,
     Function onPressed,
     double padding,
     double fontSize,
     IconData icon,
     double radius,
-    bool isLoading
-  ) => NxButton(
+    bool isLoading = false
+  }) => NxButton(
     onPressed: onPressed,
     padding: padding,
     fontSize: fontSize,

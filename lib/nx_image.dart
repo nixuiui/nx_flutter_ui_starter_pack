@@ -16,12 +16,12 @@ class NxImage extends StatelessWidget {
     this.size = 60
   }) : super(key: key);
 
-  factory NxImage.avatar(
+  factory NxImage.avatar({
     ImageProvider image,
     double size,
     Color borderColor,
     double borderSize
-  ) => NxImage(
+  }) => NxImage(
     image: image,
     size: size,
     borderColor: borderColor,

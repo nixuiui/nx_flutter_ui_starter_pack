@@ -5,14 +5,14 @@ import 'nx_text.dart';
 
 class NxTextFieldBox extends StatelessWidget {
   const NxTextFieldBox({
-    Key key, 
-    this.icon, 
-    this.suffixIcon, 
-    this.isObsecure = false, 
+    Key key,
+    this.icon,
+    this.suffixIcon,
+    this.isObsecure = false,
     this.textHint,
     this.validatorText = "",
     this.inputType = TextInputType.text,
-    this.controller, 
+    this.controller,
     this.validator,
     this.backgroundColor,
     this.borderColor,
@@ -47,7 +47,7 @@ class NxTextFieldBox extends StatelessWidget {
   final Function(String) onChanged;
   final Function(String) onFieldSubmitted;
   final VoidCallback suffixIconClicked;
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -56,13 +56,14 @@ class NxTextFieldBox extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(8),
           decoration: BoxDecoration(
-            border: Border.all(color: borderColor ?? Colors.grey[300]),
-            color: backgroundColor ?? Colors.grey[100],
-            borderRadius: BorderRadius.circular(8)
-          ),
+              border: Border.all(color: borderColor ?? Colors.grey[300]),
+              color: backgroundColor ?? Colors.grey[100],
+              borderRadius: BorderRadius.circular(8)),
           child: Row(
             children: [
-              icon != null ? Icon(icon, color: iconColor ?? Colors.black12) : Text(''),
+              icon != null
+                  ? Icon(icon, color: iconColor ?? Colors.black12)
+                  : Text(''),
               Expanded(
                 child: TextFormField(
                   controller: controller,
@@ -74,62 +75,69 @@ class NxTextFieldBox extends StatelessWidget {
                   enabled: enable,
                   onChanged: onChanged,
                   style: TextStyle(
-                    color: enable ? (textColor ?? Colors.black87) : Colors.grey, 
-                    fontSize: fontSize ?? 16,
-                    fontWeight: FontWeight.w600
-                  ),
+                      color:
+                          enable ? (textColor ?? Colors.black87) : Colors.grey,
+                      fontSize: fontSize ?? 16,
+                      fontWeight: FontWeight.w600),
                   obscureText: isObsecure,
                   keyboardType: inputType,
                   validator: validator,
                   decoration: InputDecoration.collapsed(
-                    hintText: textHint,
-                    border: InputBorder.none,
-                    hintStyle: TextStyle(color: textColor != null ? textColor.withOpacity(0.5) : Colors.black38, fontSize: fontSize ?? 14)
-                  ),
+                      hintText: textHint,
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(
+                          color: textColor != null
+                              ? textColor.withOpacity(0.5)
+                              : Colors.black38,
+                          fontSize: fontSize ?? 14)),
                 ),
               ),
-              suffixIcon != null ? GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                onTap: suffixIconClicked,
-                child: Icon(suffixIcon, color: Colors.black54)
-              ) : Container()
+              suffixIcon != null
+                  ? GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: suffixIconClicked,
+                      child: Icon(suffixIcon, color: Colors.black54))
+                  : Container()
             ],
           ),
         ),
-        validatorText != null && validatorText != "" ? Container(
-          padding: EdgeInsets.only(top: 4, left: 4, right: 4),
-          child: Text(validatorText, style: TextStyle(color: Colors.red, fontSize: 12)),
-        ) : Container()
+        validatorText != null && validatorText != ""
+            ? Container(
+                padding: EdgeInsets.only(top: 4, left: 4, right: 4),
+                child: Text(validatorText,
+                    style: TextStyle(color: Colors.red, fontSize: 12)),
+              )
+            : Container()
       ],
     );
   }
 }
 
 class NxTextFieldBorderBottom extends StatelessWidget {
-  const NxTextFieldBorderBottom({
-    Key key,
-    this.icon,
-    this.suffixIcon,
-    this.maxLength,
-    this.isObsecure = false,
-    this.textHint,
-    this.label,
-    this.textError = "",
-    this.validatorText = "",
-    this.inputType = TextInputType.text,
-    this.controller, 
-    this.validator,
-    this.inputAction,
-    this.fontWeight,
-    this.onFieldSubmitted,
-    this.enable = true,
-    this.readOnly = false,
-    this.autofocus = false,
-    this.focusNode,
-    this.onChanged,
-    this.inputFormatters,
-    this.suffixIconClicked
-  }) : super(key: key);
+  const NxTextFieldBorderBottom(
+      {Key key,
+      this.icon,
+      this.suffixIcon,
+      this.maxLength,
+      this.isObsecure = false,
+      this.textHint,
+      this.label,
+      this.textError = "",
+      this.validatorText = "",
+      this.inputType = TextInputType.text,
+      this.controller,
+      this.validator,
+      this.inputAction,
+      this.fontWeight,
+      this.onFieldSubmitted,
+      this.enable = true,
+      this.readOnly = false,
+      this.autofocus = false,
+      this.focusNode,
+      this.onChanged,
+      this.inputFormatters,
+      this.suffixIconClicked})
+      : super(key: key);
 
   final TextEditingController controller;
   final String textHint, validatorText, label, textError;
@@ -149,12 +157,12 @@ class NxTextFieldBorderBottom extends StatelessWidget {
   final Function(String) onChanged;
   final List<TextInputFormatter> inputFormatters;
   final VoidCallback suffixIconClicked;
-  
+
   @override
   Widget build(BuildContext context) {
     List<TextInputFormatter> formaters = [];
     formaters.add(LengthLimitingTextInputFormatter(maxLength));
-    if(inputFormatters != null) {
+    if (inputFormatters != null) {
       formaters.addAll(inputFormatters);
     }
     return Column(
@@ -167,10 +175,12 @@ class NxTextFieldBorderBottom extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              icon != null ? Padding(
-                padding: const EdgeInsets.only(right: 16),
-                child: Icon(icon, color: Colors.black87, size: 18),
-              ) : Container(),
+              icon != null
+                  ? Padding(
+                      padding: const EdgeInsets.only(right: 16),
+                      child: Icon(icon, color: Colors.black87, size: 18),
+                    )
+                  : Container(),
               Expanded(
                 child: TextFormField(
                   inputFormatters: formaters,
@@ -185,7 +195,7 @@ class NxTextFieldBorderBottom extends StatelessWidget {
                   readOnly: readOnly,
                   autofocus: autofocus,
                   style: TextStyle(
-                    color: enable ? Colors.black87 : Colors.grey, 
+                    color: enable ? Colors.black87 : Colors.grey,
                     fontWeight: fontWeight ?? FontWeight.w400,
                   ),
                   obscureText: isObsecure,
@@ -197,59 +207,60 @@ class NxTextFieldBorderBottom extends StatelessWidget {
                   ),
                 ),
               ),
-              suffixIcon != null ? GestureDetector(
-                behavior: HitTestBehavior.translucent,
-                onTap: suffixIconClicked,
-                child: Icon(suffixIcon, color: Colors.black54)
-              ) : Container()
+              suffixIcon != null
+                  ? GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: suffixIconClicked,
+                      child: Icon(suffixIcon, color: Colors.black54))
+                  : Container()
             ],
           ),
         ),
-        validatorText != null && validatorText != "" ? Container(
-          padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-          width: MediaQuery.of(context).size.width,
-          color: Colors.grey[100],
-          child: Text(
-            validatorText,
-            style: TextStyle(
-              color: Colors.red,
-              fontSize: 12
-            ),
-          )
-        ) : Container(),
+        validatorText != null && validatorText != ""
+            ? Container(
+                padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                width: MediaQuery.of(context).size.width,
+                color: Colors.grey[100],
+                child: Text(
+                  validatorText,
+                  style: TextStyle(color: Colors.red, fontSize: 12),
+                ))
+            : Container(),
         Divider(),
-        textError != "" && textError != null ? NxText.error(textError) : Container()
+        textError != "" && textError != null
+            ? NxText.error(textError)
+            : Container()
       ],
     );
   }
 }
 
 class TextAreaBorderBottom extends StatelessWidget {
-  const TextAreaBorderBottom({
-    Key key,
-    this.icon,
-    this.suffixIcon,
-    this.maxLength = 100,
-    this.maxLines = 10,
-    this.minLines = 1,
-    this.isObsecure = false,
-    this.label,
-    this.textHint,
-    this.textError,
-    this.validatorText = "",
-    this.inputType = TextInputType.text,
-    this.controller, 
-    this.validator,
-    this.inputAction,
-    this.fontWeight,
-    this.onFieldSubmitted,
-    this.enable = true,
-    this.autofocus = false,
-    this.focusNode,
-    this.onChanged,
-    this.onTap,
-    this.inputFormatters
-  }) : super(key: key);
+  const TextAreaBorderBottom(
+      {Key key,
+      this.icon,
+      this.suffixIcon,
+      this.maxLength = 100,
+      this.maxLines = 10,
+      this.minLines = 1,
+      this.isObsecure = false,
+      this.label,
+      this.textHint,
+      this.textError,
+      this.validatorText = "",
+      this.inputType = TextInputType.text,
+      this.controller,
+      this.validator,
+      this.inputAction,
+      this.fontWeight,
+      this.onFieldSubmitted,
+      this.enable = true,
+      this.autofocus = false,
+      this.focusNode,
+      this.onChanged,
+      this.onTap,
+      this.inputFormatters})
+      : super(key: key);
 
   final TextEditingController controller;
   final String label, textHint, validatorText, textError;
@@ -270,82 +281,85 @@ class TextAreaBorderBottom extends StatelessWidget {
   final Function(String) onChanged;
   final VoidCallback onTap;
   final List<TextInputFormatter> inputFormatters;
-  
+
   @override
   Widget build(BuildContext context) {
     List<TextInputFormatter> formaters = [];
     formaters.add(LengthLimitingTextInputFormatter(maxLength));
-    if(inputFormatters != null) {
+    if (inputFormatters != null) {
       formaters.addAll(inputFormatters);
     }
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        label != null ? NxText.formLabel(label) : Container(),
-        Container(
-          color: Colors.transparent,
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Row(
-            children: [
-              icon != null ? Padding(
-                padding: const EdgeInsets.only(right: 16),
-                child: Icon(icon, color: Colors.black87, size: 18),
-              ) : Container(),
-              Expanded(
-                child: TextFormField(
-                  cursorColor: Colors.black54,
-                  style: TextStyle(color: Colors.black87, fontSize: 14),
-                  inputFormatters: formaters,
-                  controller: controller,
-                  focusNode: focusNode,
-                  textInputAction: inputAction,
-                  onFieldSubmitted: onFieldSubmitted,
-                  onChanged: onChanged,
-                  onTap: onTap,
-                  enabled: enable,
-                  autofocus: autofocus,
-                  maxLines: maxLines,
-                  minLines: minLines,
-                  obscureText: isObsecure,
-                  validator: validator,
-                  decoration: InputDecoration.collapsed(
-                    hintText: textHint,
-                    border: InputBorder.none,
-                    hintStyle: TextStyle(color: Colors.black38, fontSize: 14),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          label != null ? NxText.formLabel(label) : Container(),
+          Container(
+              color: Colors.transparent,
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Row(
+                children: [
+                  icon != null
+                      ? Padding(
+                          padding: const EdgeInsets.only(right: 16),
+                          child: Icon(icon, color: Colors.black87, size: 18),
+                        )
+                      : Container(),
+                  Expanded(
+                    child: TextFormField(
+                      cursorColor: Colors.black54,
+                      style: TextStyle(color: Colors.black87, fontSize: 14),
+                      inputFormatters: formaters,
+                      controller: controller,
+                      focusNode: focusNode,
+                      textInputAction: inputAction,
+                      onFieldSubmitted: onFieldSubmitted,
+                      onChanged: onChanged,
+                      onTap: onTap,
+                      enabled: enable,
+                      autofocus: autofocus,
+                      maxLines: maxLines,
+                      minLines: minLines,
+                      obscureText: isObsecure,
+                      validator: validator,
+                      decoration: InputDecoration.collapsed(
+                        hintText: textHint,
+                        border: InputBorder.none,
+                        hintStyle:
+                            TextStyle(color: Colors.black38, fontSize: 14),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ],
-          )
-        ),
-        Divider(),
-        textError != "" && textError != null ? NxText.error(textError) : Container()
-      ]
-    );
+                ],
+              )),
+          Divider(),
+          textError != "" && textError != null
+              ? NxText.error(textError)
+              : Container()
+        ]);
   }
 }
 
 class SelectionBorderBottom extends StatelessWidget {
-  const SelectionBorderBottom({
-    Key key,
-    this.icon,
-    this.text,
-    this.isLoading = false,
-    this.label,
-    this.textError,
-    this.useIcon = true,
-    this.isSelected = false,
-    this.onTap
-  }) : super(key: key);
+  const SelectionBorderBottom(
+      {Key key,
+      this.icon,
+      this.text,
+      this.isLoading = false,
+      this.label,
+      this.textError,
+      this.isSelected = false,
+      this.suffixIcon,
+      this.onTap})
+      : super(key: key);
 
   final String label;
   final String textError;
-  final IconData icon;
+  final Widget icon;
   final bool isLoading;
   final String text;
-  final bool useIcon;
   final bool isSelected;
   final VoidCallback onTap;
+  final IconData suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -355,31 +369,39 @@ class SelectionBorderBottom extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          label != null ? NxText.formLabel(label) : Container(),
+          if (label != null)
+            label != null ? NxText.formLabel(label) : Container()
+          else
+            Container(),
           Container(
             height: 40,
+            decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(color: Colors.grey[300])),
+            ),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                icon != null ? Padding(
-                  padding: const EdgeInsets.only(right: 16),
-                  child: Icon(icon, color: Colors.black87, size: 18),
-                ) : Container(),
+                if (icon != null)
+                  Padding(
+                      padding: const EdgeInsets.only(right: 16), child: icon)
+                else
+                  Container(),
                 Expanded(
-                  child: Text(
-                    isLoading ? "Loading" : (text ?? ""),
-                    style: TextStyle(color: isLoading || !isSelected ? Colors.grey : Colors.black87, fontWeight: FontWeight.w400),
-                  )
-                ),
-                useIcon ? Icon(Icons.arrow_drop_down) : Container()
+                    child: Text(
+                  isLoading ? 'Loading' : (text ?? ''),
+                  style: TextStyle(
+                      color: isLoading || !isSelected
+                          ? Colors.grey
+                          : Colors.black87,
+                      fontWeight: FontWeight.w600),
+                )),
+                Icon(suffixIcon ?? Icons.arrow_drop_down)
               ],
             ),
-            decoration: BoxDecoration(
-              border: Border(bottom: BorderSide(color: Colors.grey[300]))
-            ),
           ),
-          textError != "" && textError != null ? NxText.error(textError) : Container()
+          textError != "" && textError != null
+              ? NxText.error(textError)
+              : Container()
         ],
       ),
     );

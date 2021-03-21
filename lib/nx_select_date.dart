@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'nx_text_field.dart';
 
-class NxSeectDate extends StatefulWidget {
-  const NxSeectDate(
+class NxSelectDate extends StatefulWidget {
+  const NxSelectDate(
       {Key key,
       this.icon,
       this.useFilter = false,
@@ -25,10 +25,10 @@ class NxSeectDate extends StatefulWidget {
   final ValueChanged<DateTime> onSelected;
 
   @override
-  _NxSeectDateState createState() => _NxSeectDateState();
+  _NxSelectDateState createState() => _NxSelectDateState();
 }
 
-class _NxSeectDateState extends State<NxSeectDate> {
+class _NxSelectDateState extends State<NxSelectDate> {
   @override
   Widget build(BuildContext context) {
     return SelectionBorderBottom(

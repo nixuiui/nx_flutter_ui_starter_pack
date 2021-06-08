@@ -4,22 +4,22 @@ import 'package:nx_flutter_ui_starter_pack/nx_enum.dart';
 import 'package:nx_flutter_ui_starter_pack/nx_loading_spinner.dart';
 
 class NxButton extends StatelessWidget {
-  final String text;
-  final Function onPressed;
-  final double padding;
-  final double fontSize;
-  final NxColor defaultButtonColor;
-  final Color color;
-  final Color borderColor;
-  final Color iconColor;
-  final Color textColor;
-  final IconData icon;
-  final double elevation;
-  final double radius;
+  final String? text;
+  final VoidCallback? onPressed;
+  final double? padding;
+  final double? fontSize;
+  final NxColor? defaultButtonColor;
+  final Color? color;
+  final Color? borderColor;
+  final Color? iconColor;
+  final Color? textColor;
+  final IconData? icon;
+  final double? elevation;
+  final double? radius;
   final bool isLoading;
 
   const NxButton({
-    Key key,
+    Key? key,
     this.text,
     this.onPressed,
     this.padding,
@@ -36,13 +36,13 @@ class NxButton extends StatelessWidget {
   }) : super(key: key);
 
   factory NxButton.primary({
-    String text,
-    Function onPressed,
-    double padding,
-    double fontSize,
-    IconData icon,
-    double radius,
-    bool isLoading = false
+    String? text,
+    VoidCallback? onPressed,
+    double? padding,
+    double? fontSize,
+    IconData? icon,
+    double? radius,
+    bool? isLoading = false
   }) => NxButton(
     onPressed: onPressed,
     padding: padding,
@@ -52,16 +52,16 @@ class NxButton extends StatelessWidget {
     defaultButtonColor: NxColor.primary,
     iconColor: Colors.white,
     radius: radius,
-    isLoading: isLoading
+    isLoading: isLoading ?? false, 
   );
   
   factory NxButton.accent({
-    String text,
-    Function onPressed,
-    double padding,
-    double fontSize,
-    IconData icon,
-    double radius,
+    String? text,
+    VoidCallback? onPressed,
+    double? padding,
+    double? fontSize,
+    IconData? icon,
+    double? radius,
     bool isLoading = false
   }) => NxButton(
     onPressed: onPressed,
@@ -78,13 +78,13 @@ class NxButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Color fixButtonColor;
+    Color? fixButtonColor;
     if(defaultButtonColor == NxColor.primary)
       fixButtonColor = Theme.of(context).primaryColor;
     else if(defaultButtonColor == NxColor.accent)
       fixButtonColor = Theme.of(context).accentColor;
     
-    Color fixContentColor;
+    Color? fixContentColor;
     if(defaultButtonColor == NxColor.primary)
       fixContentColor = Colors.white;
     else if(defaultButtonColor == NxColor.accent)
@@ -92,30 +92,28 @@ class NxButton extends StatelessWidget {
 
     return Container(
       width: MediaQuery.of(context).size.width,
-      child: RaisedButton(
+      child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(radius ?? 8),
-          side: BorderSide(color: fixButtonColor ?? borderColor, width: 1),
+        style: ButtonStyle(
+          elevation: MaterialStateProperty.all(elevation ?? 0),
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(radius ?? 8),
+            side: BorderSide(color: fixButtonColor ?? borderColor!, width: 1),
+          )),
+          padding: MaterialStateProperty.all(EdgeInsets.all(padding ?? 12)),
+          textStyle: MaterialStateProperty.all(TextStyle(
+            color: Colors.white,
+          )),
+          backgroundColor: MaterialStateProperty.all(fixButtonColor ?? color)
         ),
-        disabledElevation: 0,
-        padding: EdgeInsets.all(padding ?? 12),
-        disabledColor: Colors.grey[300],
-        disabledTextColor: Colors.white,
-        color: fixButtonColor ?? color,
-        textColor: Colors.white,
-        elevation: elevation,
-        hoverElevation: elevation,
-        focusElevation: elevation,
-        highlightElevation: elevation,
         child: isLoading ? NxLoadingSpinner(
-          size: fontSize != null ? fontSize + 4 : 16
+          size: fontSize != null ? fontSize! + 4 : 16
         ) : Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             icon != null ? Container(
               margin: EdgeInsets.only(right: text != null ? 8 : 0),
-              child: Icon(icon, color: fixContentColor ?? iconColor, size: fontSize != null ? fontSize + 4 : 16),
+              child: Icon(icon, color: fixContentColor ?? iconColor, size: fontSize != null ? fontSize! + 4 : 16),
             ) : Container(height: 0),
             Text(
               text ?? "", 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class NxLoadingSpinner extends StatelessWidget {
   const NxLoadingSpinner({
-    Key key,
+    Key? key,
     this.color = Colors.white,
     this.size = 20
   }) : super(key: key);

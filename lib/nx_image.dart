@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
 class NxImage extends StatelessWidget {
-  final ImageProvider image;
+  final ImageProvider? image;
   final double size;
   final double radius;
   final Color borderColor;
   final double borderSize;
 
   const NxImage({
-    Key key,
+    Key? key,
     this.image,
-    this.borderColor,
-    this.borderSize,
-    this.radius,
+    this.borderColor = Colors.transparent,
+    this.borderSize = 0,
+    this.radius = 0,
     this.size = 60
   }) : super(key: key);
 
   factory NxImage.avatar({
-    ImageProvider image,
-    double size,
-    Color borderColor,
-    double borderSize
+    ImageProvider? image,
+    double size = 0,
+    Color borderColor = Colors.transparent,
+    double borderSize = 0
   }) => NxImage(
     image: image,
     size: size,
@@ -38,12 +38,12 @@ class NxImage extends StatelessWidget {
         color: image != null ? Colors.white : Colors.grey,
         borderRadius: BorderRadius.circular(radius),
         border: Border.all(
-          color: borderColor ?? Colors.transparent, 
-          width: borderSize ?? 0
+          color: borderColor, 
+          width: borderSize
         ),
         image: image != null ? DecorationImage(
           fit: BoxFit.cover,
-          image: image
+          image: image!
         ) : null
       ),
     );

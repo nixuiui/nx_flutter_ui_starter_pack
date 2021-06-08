@@ -4,8 +4,8 @@ import 'nx_text.dart';
 
 class NxSelectOptions extends StatefulWidget {
   const NxSelectOptions({
-    Key key,
-    this.options,
+    Key? key,
+    required this.options,
     this.selected,
     this.title = "Select",
     this.useImageAsset = false,
@@ -46,7 +46,7 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).appBarTheme.color,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Theme.of(context).appBarTheme.iconTheme.color),
+          icon: Icon(Icons.arrow_back, color: Theme.of(context).appBarTheme.iconTheme?.color),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(widget.title),
@@ -71,7 +71,7 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
               style: TextStyle(color: Colors.black87),
               onChanged: (value) {
                 setState(() {
-                  optionsFiltered = value.isEmpty ? widget.options : widget.options.where((q) => q.name.toLowerCase().contains(value.toLowerCase())).toList();
+                  optionsFiltered = value.isEmpty ? widget.options : widget.options.where((q) => q.name?.toLowerCase().contains(value.toLowerCase()) ?? false).toList();
                 });
               },
               decoration: InputDecoration(
@@ -146,7 +146,7 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
           child: ListTile(
             trailing: !widget.multipleSelect ? null
               : Icon(Icons.check_circle, color: Colors.green),
-            title: NxText.bold(data.name),
+            title: NxText.bold(data.name ?? ''),
             onTap: () {},
           ),
         ),
@@ -183,7 +183,7 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
           widget.useImageAsset ? Padding(
             padding: EdgeInsets.only(right: 16),
             child: item.imageAsset != null ? Image.asset(
-              item.imageAsset,
+              item.imageAsset!,
               width: 40,
               height: 40,
             ) : Container(),
@@ -192,12 +192,12 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
             padding: EdgeInsets.only(right: 16),
             child: item.imageNetwork != null ? FadeInImage.assetNetwork(
               placeholder: "assets/grey.jpeg",
-              image: item.imageNetwork,
+              image: item.imageNetwork!,
               width: 40,
               height: 40,
             ) : Container(),
           ) : Container(),
-          Text(item.name),
+          Text(item.name ?? ''),
         ],
       ),
       onTap: () {

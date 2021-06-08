@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class NxBox extends StatelessWidget {
   const NxBox({
-    Key key,
+    required Key key,
     this.child,
     this.width,
     this.height,
@@ -17,18 +17,18 @@ class NxBox extends StatelessWidget {
     this.gradient
   }) : super(key: key);
 
-  final Widget child;
-  final double width;
-  final double height;
-  final Color color;
-  final double padding;
-  final double margin;
-  final double borderRadius;
-  final Color borderColor;
-  final ImageProvider image;
-  final List<BoxShadow> boxShadow;
-  final VoidCallback onPressed;
-  final Gradient gradient;
+  final Widget? child;
+  final double? width;
+  final double? height;
+  final Color? color;
+  final double? padding;
+  final double? margin;
+  final double? borderRadius;
+  final Color? borderColor;
+  final ImageProvider? image;
+  final List<BoxShadow>? boxShadow;
+  final VoidCallback? onPressed;
+  final Gradient? gradient;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class NxBox extends StatelessWidget {
           border: Border.all(color: borderColor ?? Colors.transparent, width: borderColor != null ? 1 : 0),
           boxShadow: boxShadow,
           borderRadius: BorderRadius.circular(borderRadius ?? 0),
-          image: image != null ? DecorationImage(image: image, fit: BoxFit.cover) : null,
+          image: image != null ? DecorationImage(image: image!, fit: BoxFit.cover) : null,
           gradient: gradient ?? null
         ),
       ),

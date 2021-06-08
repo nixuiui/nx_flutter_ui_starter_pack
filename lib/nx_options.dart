@@ -1,9 +1,9 @@
 class NxOptions<T> {
-    String imageAsset;
-    String imageNetwork;
-    String name;
-    T value;
-    bool isSelected;
+    String? imageAsset;
+    String? imageNetwork;
+    String? name;
+    T? value;
+    bool? isSelected;
 
     NxOptions({
         this.imageAsset,

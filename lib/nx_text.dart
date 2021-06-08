@@ -3,16 +3,16 @@ import 'package:nx_flutter_ui_starter_pack/nx_enum.dart';
 
 class NxText extends StatelessWidget {
   final String text;
-  final Color color;
-  final double fontSize;
-  final int maxLines;
-  final FontWeight fontWeight;
-  final TextAlign textAlign;
-  final Function onPressed;
-  final NxColor defaultColor;
+  final Color? color;
+  final double? fontSize;
+  final int? maxLines;
+  final FontWeight? fontWeight;
+  final TextAlign? textAlign;
+  final Function? onPressed;
+  final NxColor? defaultColor;
 
   const NxText(this.text, {
-    Key key,
+    Key? key,
     this.color = Colors.black87,
     this.fontSize = 14,
     this.maxLines = 3,
@@ -23,10 +23,10 @@ class NxText extends StatelessWidget {
   }) : super(key: key);
 
   factory NxText.title(String text, {
-    int maxLines,
-    TextAlign textAlign,
-    Color color,
-    Function onPressed
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    Function? onPressed
   }) => NxText(
     text,
     maxLines: maxLines,
@@ -38,10 +38,10 @@ class NxText extends StatelessWidget {
   );
   
   factory NxText.subtitle(String text,{
-    int maxLines,
-    TextAlign textAlign,
-    Color color,
-    Function onPressed
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    Function? onPressed
   }) => NxText(
     text,
     maxLines: maxLines,
@@ -53,10 +53,10 @@ class NxText extends StatelessWidget {
   );
   
   factory NxText.primary(String text, {
-    double fontSize,
-    FontWeight fontWeight,
-    Color color,
-    Function onPressed
+    double? fontSize,
+    FontWeight? fontWeight,
+    Color? color,
+    Function? onPressed
   }) => NxText(
     text,
     fontSize: fontSize,
@@ -66,10 +66,10 @@ class NxText extends StatelessWidget {
   );
   
   factory NxText.accent(String text, {
-    double fontSize,
-    FontWeight fontWeight,
-    Color color,
-    Function onPressed
+    double? fontSize,
+    FontWeight? fontWeight,
+    Color? color,
+    Function? onPressed
   }) => NxText(
     text,
     fontSize: fontSize,
@@ -80,8 +80,8 @@ class NxText extends StatelessWidget {
   
   factory NxText.error(String text, {
     double fontSize = 12,
-    FontWeight fontWeight,
-    Color color,
+    FontWeight? fontWeight,
+    Color? color,
   }) => NxText(
     text,
     fontSize: fontSize,
@@ -90,8 +90,8 @@ class NxText extends StatelessWidget {
   );
   
   factory NxText.bold(String text, {
-    Color color,
-    Function onPressed
+    Color? color,
+    Function? onPressed
   }) => NxText(
     text,
     color: color,
@@ -100,8 +100,8 @@ class NxText extends StatelessWidget {
   );
   
   factory NxText.small(String text, {
-    Color color,
-    Function onPressed
+    Color? color,
+    Function? onPressed
   }) => NxText(
     text,
     fontSize: 12,
@@ -123,7 +123,7 @@ class NxText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Color fixColor;
+    Color? fixColor;
     if(defaultColor == NxColor.primary)
       fixColor = Theme.of(context).primaryColor;
     else if(defaultColor == NxColor.accent)
@@ -131,7 +131,7 @@ class NxText extends StatelessWidget {
 
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: onPressed,
+      onTap: onPressed?.call(),
       child: Text(
         text,
         maxLines: maxLines,

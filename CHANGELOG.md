@@ -1,3 +1,15 @@
+## [0.1.5]
+
+- App Bar Theme Brightness
+
+## [0.1.4]
+
+- Change margin in icon input
+
+## [0.1.3]
+
+- Suffix Icon in select box
+
 ## [0.1.2]
 
 - Add padding in text field box

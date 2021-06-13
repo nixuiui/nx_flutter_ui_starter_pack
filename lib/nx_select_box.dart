@@ -44,7 +44,7 @@ class _NxSelectBoxState extends State<NxSelectBox> {
       isLoading: widget.isLoading,
       text: widget.text,
       isSelected: widget.selected != null,
-      suffixIcon: widget.suffixIcon!,
+      suffixIcon: widget.suffixIcon,
       onTap: () => select(context),
     );
   }

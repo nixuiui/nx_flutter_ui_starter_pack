@@ -64,7 +64,10 @@ class NxTextFieldBox extends StatelessWidget {
           child: Row(
             children: [
               icon != null
-                  ? Icon(icon, color: iconColor ?? Colors.black12)
+                  ? Container(
+                    child: Icon(icon, color: iconColor ?? Colors.black12),
+                    margin: EdgeInsets.only(right: padding),
+                  )
                   : Text(''),
               Expanded(
                 child: TextFormField(

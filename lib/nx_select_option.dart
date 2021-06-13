@@ -50,7 +50,7 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(widget.title),
-        brightness: Brightness.light,
+        brightness: Theme.of(context).appBarTheme.brightness,
         actions: <Widget>[
           widget.multipleSelect ? 
           IconButton(

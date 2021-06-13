@@ -1,4 +1,12 @@
-## [0.1.]
+## [0.1.2]
+
+- Add padding in text field box
+
+## [0.1.1]
+
+- Nullsafety
+
+## [0.1.0]
 
 - Nullsafety
 

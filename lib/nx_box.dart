@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class NxBox extends StatelessWidget {
   const NxBox({
-    required Key key,
+    Key? key,
     this.child,
     this.width,
     this.height,

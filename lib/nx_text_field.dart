@@ -6,6 +6,7 @@ import 'nx_text.dart';
 class NxTextFieldBox extends StatelessWidget {
   const NxTextFieldBox({
     Key? key,
+    this.padding = 8,
     this.icon,
     this.suffixIcon,
     this.isObsecure = false,
@@ -28,6 +29,7 @@ class NxTextFieldBox extends StatelessWidget {
     this.suffixIconClicked,
   }) : super(key: key);
 
+  final double padding;
   final TextEditingController? controller;
   final String? textHint, validatorText;
   final IconData? icon;
@@ -54,7 +56,7 @@ class NxTextFieldBox extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          padding: EdgeInsets.all(8),
+          padding: EdgeInsets.all(padding),
           decoration: BoxDecoration(
               border: Border.all(color: borderColor ?? Colors.grey[300]!),
               color: backgroundColor ?? Colors.grey[100],

@@ -1,3 +1,11 @@
+## [0.1.7]
+
+- NxSelectBox update with default text
+
+## [0.1.6]
+
+- Add Error Text In Text Field Box
+
 ## [0.1.5]
 
 - App Bar Theme Brightness

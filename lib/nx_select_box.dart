@@ -42,7 +42,7 @@ class _NxSelectBoxState extends State<NxSelectBox> {
       textError: widget.textError,
       icon: widget.icon,
       isLoading: widget.isLoading,
-      text: widget.text,
+      text: widget.selected != null ? (widget.selected?.name ?? "") : (widget.text ?? "Select"),
       isSelected: widget.selected != null,
       suffixIcon: widget.suffixIcon,
       onTap: () => select(context),

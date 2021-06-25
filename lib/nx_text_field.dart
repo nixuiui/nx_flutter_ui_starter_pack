@@ -11,6 +11,7 @@ class NxTextFieldBox extends StatelessWidget {
     this.suffixIcon,
     this.isObsecure = false,
     this.textHint,
+    this.textError = "",
     this.validatorText = "",
     this.inputType = TextInputType.text,
     this.controller,
@@ -31,7 +32,7 @@ class NxTextFieldBox extends StatelessWidget {
 
   final double padding;
   final TextEditingController? controller;
-  final String? textHint, validatorText;
+  final String? textHint, validatorText, textError;
   final IconData? icon;
   final IconData? suffixIcon;
   final bool isObsecure;
@@ -110,6 +111,9 @@ class NxTextFieldBox extends StatelessWidget {
                 padding: EdgeInsets.only(top: 4, left: 4, right: 4),
                 child: NxText.error(validatorText!),
               )
+            : Container(),
+        textError != "" && textError != null
+            ? NxText.error(textError!)
             : Container()
       ],
     );

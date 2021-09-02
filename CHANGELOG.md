@@ -1,3 +1,11 @@
+## [0.1.11]
+
+- Update
+
+## [0.1.8]
+
+- NxSelextDate update lastDate
+
 ## [0.1.7]
 
 - NxSelectBox update with default text

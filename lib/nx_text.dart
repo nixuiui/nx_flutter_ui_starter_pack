@@ -129,9 +129,9 @@ class NxText extends StatelessWidget {
     else if(defaultColor == NxColor.accent)
       fixColor = Theme.of(context).accentColor;
 
-    return GestureDetector(
+    return onPressed != null ? GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: onPressed?.call(),
+      onTap: () => onPressed?.call(),
       child: Text(
         text,
         maxLines: maxLines,
@@ -142,6 +142,16 @@ class NxText extends StatelessWidget {
           fontSize: fontSize,
           fontWeight: fontWeight
         ),
+      ),
+    ) : Text(
+      text,
+      maxLines: maxLines,
+      overflow: TextOverflow.ellipsis,
+      textAlign: textAlign,
+      style: TextStyle(
+        color: fixColor ?? color,
+        fontSize: fontSize,
+        fontWeight: fontWeight
       ),
     );
   }

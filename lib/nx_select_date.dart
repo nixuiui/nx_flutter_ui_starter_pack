@@ -9,6 +9,7 @@ class NxSelectDate extends StatefulWidget {
     this.useFilter = false,
     this.text = "",
     this.initialDate,
+    this.lastDate,
     this.isLoading = false,
     this.label = "",
     this.textError,
@@ -22,6 +23,7 @@ class NxSelectDate extends StatefulWidget {
   final bool isLoading;
   final String text;
   final DateTime? initialDate;
+  final DateTime? lastDate;
   final ValueChanged<DateTime>? onSelected;
 
   @override
@@ -44,11 +46,17 @@ class _NxSelectDateState extends State<NxSelectDate> {
   }
 
   Future selectDate(BuildContext context) async {
+    var lastDate = DateTime.now();
+    lastDate.add(Duration(days: 360));
+    if(widget.lastDate != null) {
+      lastDate = widget.lastDate!;
+    }
+
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: widget.initialDate ?? DateTime.now(),
       firstDate: DateTime(1960),
-      lastDate: DateTime.now(),
+      lastDate: lastDate,
     );
     if (picked != null && picked != widget.initialDate) {
       widget.onSelected?.call(picked);

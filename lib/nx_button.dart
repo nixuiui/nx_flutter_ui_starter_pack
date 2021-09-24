@@ -6,6 +6,7 @@ import 'package:nx_flutter_ui_starter_pack/nx_loading_spinner.dart';
 class NxButton extends StatelessWidget {
   final String? text;
   final VoidCallback? onPressed;
+  final double? width;
   final double? padding;
   final double? fontSize;
   final NxColor? defaultButtonColor;
@@ -22,6 +23,7 @@ class NxButton extends StatelessWidget {
     Key? key,
     this.text,
     this.onPressed,
+    this.width,
     this.padding,
     this.fontSize,
     this.defaultButtonColor,
@@ -38,6 +40,7 @@ class NxButton extends StatelessWidget {
   factory NxButton.primary({
     String? text,
     VoidCallback? onPressed,
+    double? width,
     double? padding,
     double? fontSize,
     IconData? icon,
@@ -45,6 +48,7 @@ class NxButton extends StatelessWidget {
     bool? isLoading = false
   }) => NxButton(
     onPressed: onPressed,
+    width: width,
     padding: padding,
     fontSize: fontSize,
     icon: icon,
@@ -58,6 +62,7 @@ class NxButton extends StatelessWidget {
   factory NxButton.accent({
     String? text,
     VoidCallback? onPressed,
+    double? width,
     double? padding,
     double? fontSize,
     IconData? icon,
@@ -65,6 +70,7 @@ class NxButton extends StatelessWidget {
     bool isLoading = false
   }) => NxButton(
     onPressed: onPressed,
+    width: width,
     padding: padding,
     fontSize: fontSize,
     icon: icon,
@@ -91,7 +97,7 @@ class NxButton extends StatelessWidget {
       fixContentColor = Colors.white;
 
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: width ?? MediaQuery.of(context).size.width,
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
         style: ButtonStyle(

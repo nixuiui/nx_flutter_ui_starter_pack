@@ -6,6 +6,7 @@ import 'nx_text.dart';
 class NxTextFieldBox extends StatelessWidget {
   const NxTextFieldBox({
     Key? key,
+    this.borderRadius = 8,
     this.padding = 8,
     this.icon,
     this.suffixIcon,
@@ -30,6 +31,7 @@ class NxTextFieldBox extends StatelessWidget {
     this.suffixIconClicked,
   }) : super(key: key);
 
+  final double borderRadius;
   final double padding;
   final TextEditingController? controller;
   final String? textHint, validatorText, textError;
@@ -61,7 +63,7 @@ class NxTextFieldBox extends StatelessWidget {
           decoration: BoxDecoration(
               border: Border.all(color: borderColor ?? Colors.grey[300]!),
               color: backgroundColor ?? Colors.grey[100],
-              borderRadius: BorderRadius.circular(8)),
+              borderRadius: BorderRadius.circular(borderRadius)),
           child: Row(
             children: [
               icon != null

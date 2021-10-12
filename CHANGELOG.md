@@ -1,3 +1,7 @@
+## [0.1.14]
+
+- NxText Decoration
+
 ## [0.1.13]
 
 - Add field witdh in button

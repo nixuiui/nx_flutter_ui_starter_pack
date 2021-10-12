@@ -10,6 +10,7 @@ class NxText extends StatelessWidget {
   final TextAlign? textAlign;
   final Function? onPressed;
   final NxColor? defaultColor;
+  final TextDecoration? textDecoration;
 
   const NxText(this.text, {
     Key? key,
@@ -19,7 +20,8 @@ class NxText extends StatelessWidget {
     this.textAlign = TextAlign.left,
     this.fontWeight = FontWeight.normal,
     this.onPressed,
-    this.defaultColor
+    this.defaultColor,
+    this.textDecoration = TextDecoration.none,
   }) : super(key: key);
 
   factory NxText.title(String text, {
@@ -140,7 +142,8 @@ class NxText extends StatelessWidget {
         style: TextStyle(
           color: fixColor ?? color,
           fontSize: fontSize,
-          fontWeight: fontWeight
+          fontWeight: fontWeight,
+          decoration: textDecoration
         ),
       ),
     ) : Text(
@@ -151,7 +154,8 @@ class NxText extends StatelessWidget {
       style: TextStyle(
         color: fixColor ?? color,
         fontSize: fontSize,
-        fontWeight: fontWeight
+        fontWeight: fontWeight,
+        decoration: textDecoration
       ),
     );
   }

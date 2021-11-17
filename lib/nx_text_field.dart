@@ -29,6 +29,7 @@ class NxTextFieldBox extends StatelessWidget {
     this.enable = true,
     this.onChanged,
     this.suffixIconClicked,
+    this.boxShadow,
   }) : super(key: key);
 
   final double borderRadius;
@@ -52,6 +53,7 @@ class NxTextFieldBox extends StatelessWidget {
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
   final VoidCallback? suffixIconClicked;
+  final List<BoxShadow>? boxShadow;
 
   @override
   Widget build(BuildContext context) {
@@ -61,17 +63,17 @@ class NxTextFieldBox extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(padding),
           decoration: BoxDecoration(
-              border: Border.all(color: borderColor ?? Colors.grey[300]!),
-              color: backgroundColor ?? Colors.grey[100],
-              borderRadius: BorderRadius.circular(borderRadius)),
+            border: Border.all(color: borderColor ?? Colors.grey[300]!),
+            color: backgroundColor ?? Colors.grey[100],
+            borderRadius: BorderRadius.circular(borderRadius),
+            boxShadow: boxShadow,
+          ),
           child: Row(
             children: [
-              icon != null
-                  ? Container(
-                    child: Icon(icon, color: iconColor ?? Colors.black12),
-                    margin: EdgeInsets.only(right: padding),
-                  )
-                  : Text(''),
+              icon != null ? Container(
+                child: Icon(icon, color: iconColor ?? Colors.black12),
+                margin: EdgeInsets.only(right: padding),
+              ) : Text(''),
               Expanded(
                 child: TextFormField(
                   controller: controller,
@@ -83,40 +85,40 @@ class NxTextFieldBox extends StatelessWidget {
                   enabled: enable,
                   onChanged: onChanged,
                   style: TextStyle(
-                      color: enable ? (textColor ?? Colors.black87) : Colors.grey,
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w600),
+                    color: enable ? (textColor ?? Colors.black87) : Colors.grey,
+                    fontSize: fontSize,
+                    fontWeight: FontWeight.w600
+                  ),
                   obscureText: isObsecure,
                   keyboardType: inputType,
                   validator: validator,
                   decoration: InputDecoration.collapsed(
-                      hintText: textHint,
-                      border: InputBorder.none,
-                      hintStyle: TextStyle(
-                          color: textColor != null
-                              ? textColor?.withOpacity(0.5)
-                              : Colors.black38,
-                          fontSize: fontSize)),
+                    hintText: textHint,
+                    border: InputBorder.none,
+                    hintStyle: TextStyle(
+                      color: textColor != null
+                        ? textColor?.withOpacity(0.5)
+                        : Colors.black38,
+                    fontSize: fontSize)
+                  ),
                 ),
               ),
-              suffixIcon != null
-                  ? GestureDetector(
-                      behavior: HitTestBehavior.translucent,
-                      onTap: suffixIconClicked,
-                      child: Icon(suffixIcon, color: Colors.black54))
-                  : Container()
+              suffixIcon != null ? Container(
+                margin: EdgeInsets.only(left: 8),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: suffixIconClicked,
+                  child: Icon(suffixIcon, color: Colors.black54)
+                ),
+              ) : Container()
             ],
           ),
         ),
-        validatorText != null && validatorText != ""
-            ? Container(
-                padding: EdgeInsets.only(top: 4, left: 4, right: 4),
-                child: NxText.error(validatorText!),
-              )
-            : Container(),
-        textError != "" && textError != null
-            ? NxText.error(textError!)
-            : Container()
+        validatorText != null && validatorText != "" ? Container(
+          padding: EdgeInsets.only(top: 4, left: 4, right: 4),
+          child: NxText.error(validatorText!),
+        ) : Container(),
+        textError != "" && textError != null ? NxText.error(textError!) : Container()
       ],
     );
   }

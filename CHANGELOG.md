@@ -1,3 +1,7 @@
+## [0.1.15]
+
+- Add box shadow for text field box
+
 ## [0.1.14]
 
 - NxText Decoration

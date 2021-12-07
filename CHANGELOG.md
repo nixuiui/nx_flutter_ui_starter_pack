@@ -1,3 +1,7 @@
+## [0.1.16]
+
+- Add select box and textarea
+
 ## [0.1.15]
 
 - Add box shadow for text field box

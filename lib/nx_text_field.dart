@@ -267,6 +267,13 @@ class TextAreaBorderBottom extends StatelessWidget {
     this.focusNode,
     this.onChanged,
     this.onTap,
+    this.borderRadius,
+    this.borderColor,
+    this.boxShadow,
+    this.padding,
+    this.margin,
+    this.borderBottom = true,
+    this.color = Colors.transparent,
     this.inputFormatters
   }) : super(key: key);
 
@@ -288,6 +295,13 @@ class TextAreaBorderBottom extends StatelessWidget {
   final Function(String)? onFieldSubmitted;
   final Function(String)? onChanged;
   final VoidCallback? onTap;
+  final bool borderBottom;
+  final double? padding;
+  final double? margin;
+  final double? borderRadius;
+  final Color? borderColor;
+  final Color? color;
+  final List<BoxShadow>? boxShadow;
   final List<TextInputFormatter>? inputFormatters;
 
   @override
@@ -297,53 +311,65 @@ class TextAreaBorderBottom extends StatelessWidget {
     if (inputFormatters != null) {
       formaters.addAll(inputFormatters!);
     }
-    return Column(
+    return Container(
+      padding: EdgeInsets.all(padding ?? 0),
+      margin: EdgeInsets.all(margin ?? 0),
+      decoration: BoxDecoration(
+        color: color,
+        border: Border.all(color: borderColor ?? Colors.transparent, width: borderColor != null ? 1 : 0),
+        boxShadow: boxShadow,
+        borderRadius: BorderRadius.circular(borderRadius ?? 0),
+      ),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           label != null ? NxText.formLabel(label!) : Container(),
           Container(
-              color: Colors.transparent,
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: Row(
-                children: [
-                  icon != null
-                      ? Padding(
-                          padding: const EdgeInsets.only(right: 16),
-                          child: Icon(icon, color: Colors.black87, size: 18),
-                        )
-                      : Container(),
-                  Expanded(
-                    child: TextFormField(
-                      cursorColor: Colors.black54,
-                      style: TextStyle(color: Colors.black87, fontSize: 14),
-                      inputFormatters: formaters,
-                      controller: controller,
-                      focusNode: focusNode,
-                      textInputAction: inputAction,
-                      onFieldSubmitted: onFieldSubmitted,
-                      onChanged: onChanged,
-                      onTap: onTap,
-                      enabled: enable,
-                      autofocus: autofocus,
-                      maxLines: maxLines,
-                      minLines: minLines,
-                      obscureText: isObsecure,
-                      validator: validator,
-                      decoration: InputDecoration.collapsed(
-                        hintText: textHint,
-                        border: InputBorder.none,
-                        hintStyle:
-                            TextStyle(color: Colors.black38, fontSize: 14),
-                      ),
+            color: Colors.transparent,
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Row(
+              children: [
+                icon != null
+                    ? Padding(
+                        padding: const EdgeInsets.only(right: 16),
+                        child: Icon(icon, color: Colors.black87, size: 18),
+                      )
+                    : Container(),
+                Expanded(
+                  child: TextFormField(
+                    cursorColor: Colors.black54,
+                    style: TextStyle(color: Colors.black87, fontSize: 14),
+                    inputFormatters: formaters,
+                    controller: controller,
+                    focusNode: focusNode,
+                    textInputAction: inputAction,
+                    onFieldSubmitted: onFieldSubmitted,
+                    onChanged: onChanged,
+                    onTap: onTap,
+                    enabled: enable,
+                    autofocus: autofocus,
+                    maxLines: maxLines,
+                    minLines: minLines,
+                    obscureText: isObsecure,
+                    validator: validator,
+                    decoration: InputDecoration.collapsed(
+                      hintText: textHint,
+                      border: InputBorder.none,
+                      hintStyle:
+                          TextStyle(color: Colors.black38, fontSize: 14),
                     ),
                   ),
-                ],
-              )),
-          Divider(),
+                ),
+              ],
+            )
+          ),
+          borderBottom ? Divider() : Container(),
           textError != "" && textError != null
               ? NxText.error(textError!)
               : Container()
-        ]);
+        ]
+      ),
+    );
   }
 }
 
@@ -357,6 +383,13 @@ class SelectionBorderBottom extends StatelessWidget {
     this.textError,
     this.isSelected = false,
     this.suffixIcon,
+    this.borderRadius,
+    this.borderColor,
+    this.boxShadow,
+    this.padding,
+    this.margin,
+    this.borderBottom = true,
+    this.color = Colors.transparent,
     this.onTap
   }) : super(key: key);
 
@@ -368,49 +401,63 @@ class SelectionBorderBottom extends StatelessWidget {
   final bool isSelected;
   final VoidCallback? onTap;
   final IconData? suffixIcon;
+  final bool borderBottom;
+  final double? padding;
+  final double? margin;
+  final double? borderRadius;
+  final Color? borderColor;
+  final Color? color;
+  final List<BoxShadow>? boxShadow;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: onTap,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (label != null)
-            label != null ? NxText.formLabel(label!) : Container()
-          else
-            Container(),
-          Container(
-            height: 40,
-            decoration: BoxDecoration(
-              border: Border(bottom: BorderSide(color: Colors.grey[300]!)),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                if (icon != null)
-                  Padding(
-                      padding: const EdgeInsets.only(right: 16), child: icon)
-                else
-                  Container(),
-                Expanded(
+      child: Container(
+        padding: EdgeInsets.all(padding ?? 0),
+        margin: EdgeInsets.all(margin ?? 0),
+        decoration: BoxDecoration(
+          color: color,
+          border: Border.all(color: borderColor ?? Colors.transparent, width: borderColor != null ? 1 : 0),
+          boxShadow: boxShadow,
+          borderRadius: BorderRadius.circular(borderRadius ?? 0),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (label != null) label != null ? NxText.formLabel(label!) : Container()
+            else Container(),
+            Container(
+              height: 40,
+              decoration: BoxDecoration(
+                border: Border(bottom: BorderSide(color: borderBottom ? Colors.grey[300]! : Colors.transparent, width: borderBottom ? 1 : 0)),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  if (icon != null)
+                    Padding(padding: const EdgeInsets.only(right: 16), child: icon)
+                  else
+                    Container(),
+                  Expanded(
                     child: Text(
-                  isLoading ? 'Loading' : (text ?? ''),
-                  style: TextStyle(
-                      color: isLoading || !isSelected
-                          ? Colors.grey
-                          : Colors.black87,
-                      fontWeight: FontWeight.w600),
-                )),
-                Icon(suffixIcon ?? Icons.arrow_drop_down)
-              ],
+                      isLoading ? 'Loading' : (text ?? ''),
+                      style: TextStyle(
+                        color: isLoading || !isSelected ? Colors.grey : Colors.black87,
+                        fontWeight: FontWeight.w600
+                      ),
+                    )
+                  ),
+                  Icon(suffixIcon ?? Icons.arrow_drop_down)
+                ],
+              ),
             ),
-          ),
-          textError != "" && textError != null
-              ? NxText.error(textError!)
-              : Container()
-        ],
+            textError != "" && textError != null
+                ? NxText.error(textError!)
+                : Container()
+          ],
+        ),
       ),
     );
   }

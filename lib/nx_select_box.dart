@@ -16,6 +16,13 @@ class NxSelectBox extends StatefulWidget {
     this.options,
     this.selected,
     this.suffixIcon,
+    this.borderRadius,
+    this.borderColor,
+    this.boxShadow,
+    this.padding,
+    this.margin,
+    this.borderBottom = true,
+    this.color = Colors.transparent,
     this.onSelected
   }) : super(key: key);
 
@@ -29,6 +36,13 @@ class NxSelectBox extends StatefulWidget {
   final NxOptions? selected;
   final ValueChanged<NxOptions>? onSelected;
   final IconData? suffixIcon;
+  final bool borderBottom;
+  final double? padding;
+  final double? margin;
+  final double? borderRadius;
+  final Color? borderColor;
+  final Color? color;
+  final List<BoxShadow>? boxShadow;
 
   @override
   _NxSelectBoxState createState() => _NxSelectBoxState();
@@ -40,11 +54,18 @@ class _NxSelectBoxState extends State<NxSelectBox> {
     return SelectionBorderBottom(
       label: widget.label,
       textError: widget.textError,
+      boxShadow: widget.boxShadow,
       icon: widget.icon,
       isLoading: widget.isLoading,
       text: widget.selected != null ? (widget.selected?.name ?? "") : (widget.text ?? "Select"),
       isSelected: widget.selected != null,
       suffixIcon: widget.suffixIcon,
+      borderBottom: widget.borderBottom,
+      padding: widget.padding,
+      margin: widget.margin,
+      borderRadius: widget.borderRadius,
+      borderColor: widget.borderColor,
+      color: widget.color,
       onTap: () => select(context),
     );
   }

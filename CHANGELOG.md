@@ -1,3 +1,11 @@
+## [0.1.18]
+
+- Update multiple select box
+
+## [0.1.17]
+
+- Height property on select box
+
 ## [0.1.16]
 
 - Add select box and textarea

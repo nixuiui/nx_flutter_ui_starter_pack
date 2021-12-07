@@ -386,6 +386,7 @@ class SelectionBorderBottom extends StatelessWidget {
     this.borderRadius,
     this.borderColor,
     this.boxShadow,
+    this.height,
     this.padding,
     this.margin,
     this.borderBottom = true,
@@ -402,6 +403,7 @@ class SelectionBorderBottom extends StatelessWidget {
   final VoidCallback? onTap;
   final IconData? suffixIcon;
   final bool borderBottom;
+  final double? height;
   final double? padding;
   final double? margin;
   final double? borderRadius;
@@ -429,7 +431,7 @@ class SelectionBorderBottom extends StatelessWidget {
             if (label != null) label != null ? NxText.formLabel(label!) : Container()
             else Container(),
             Container(
-              height: 40,
+              height: height ?? 40,
               decoration: BoxDecoration(
                 border: Border(bottom: BorderSide(color: borderBottom ? Colors.grey[300]! : Colors.transparent, width: borderBottom ? 1 : 0)),
               ),

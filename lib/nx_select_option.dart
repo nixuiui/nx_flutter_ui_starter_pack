@@ -54,7 +54,7 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
         actions: <Widget>[
           widget.multipleSelect ? 
           IconButton(
-            icon: Icon(Icons.check, color: Colors.white), 
+            icon: Icon(Icons.check, color: Theme.of(context).appBarTheme.actionsIconTheme?.color), 
             onPressed: () => Navigator.of(context).pop({'data': optionsSelected})
           ) : Container()
         ],

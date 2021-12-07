@@ -19,9 +19,11 @@ class NxSelectBox extends StatefulWidget {
     this.borderRadius,
     this.borderColor,
     this.boxShadow,
+    this.height,
     this.padding,
     this.margin,
     this.borderBottom = true,
+    this.multipleSelect = false,
     this.color = Colors.transparent,
     this.onSelected
   }) : super(key: key);
@@ -33,10 +35,12 @@ class NxSelectBox extends StatefulWidget {
   final bool isLoading;
   final String? text;
   final List<NxOptions>? options;
-  final NxOptions? selected;
-  final ValueChanged<NxOptions>? onSelected;
+  final dynamic? selected;
+  final ValueChanged<dynamic>? onSelected;
   final IconData? suffixIcon;
   final bool borderBottom;
+  final bool multipleSelect;
+  final double? height;
   final double? padding;
   final double? margin;
   final double? borderRadius;
@@ -57,10 +61,13 @@ class _NxSelectBoxState extends State<NxSelectBox> {
       boxShadow: widget.boxShadow,
       icon: widget.icon,
       isLoading: widget.isLoading,
-      text: widget.selected != null ? (widget.selected?.name ?? "") : (widget.text ?? "Select"),
+      text: widget.selected != null ? (
+        widget.selected is NxOptions ? widget.selected?.name ?? "" : getListSelectedAsText()
+      ) : (widget.text ?? "Select"),
       isSelected: widget.selected != null,
       suffixIcon: widget.suffixIcon,
       borderBottom: widget.borderBottom,
+      height: widget.height,
       padding: widget.padding,
       margin: widget.margin,
       borderRadius: widget.borderRadius,
@@ -78,11 +85,22 @@ class _NxSelectBoxState extends State<NxSelectBox> {
         options: widget.options ?? [],
         selected: widget.selected,
         useFilter: widget.useFilter,
+        multipleSelect: widget.multipleSelect,
       )),
     );
 
     if (results != null && results.containsKey('data')) {
-      widget.onSelected?.call(results['data'] as NxOptions);
+      widget.onSelected?.call(results['data']);
     }
+  }
+
+  getListSelectedAsText() {
+    var result = "";
+    (widget.selected as List<NxOptions<dynamic>>).forEach((e) {
+      if(result == "") result += e.name!;
+      else result += ", ${e.name!}";
+    });
+    if(result == "") return widget.text ?? "Select";
+    return result;
   }
 }

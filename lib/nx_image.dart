@@ -35,7 +35,7 @@ class NxImage extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
-        color: image != null ? Colors.white : Colors.grey,
+        color: image != null ? Colors.white : Colors.grey[300],
         borderRadius: BorderRadius.circular(radius),
         border: Border.all(
           color: borderColor, 

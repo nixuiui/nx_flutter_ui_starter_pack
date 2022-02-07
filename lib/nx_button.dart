@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nx_flutter_ui_starter_pack/nx_enum.dart';
 import 'package:nx_flutter_ui_starter_pack/nx_loading_spinner.dart';
@@ -86,9 +85,9 @@ class NxButton extends StatelessWidget {
 
     Color? fixButtonColor;
     if(defaultButtonColor == NxColor.primary)
-      fixButtonColor = Theme.of(context).primaryColor;
+      fixButtonColor = Theme.of(context).colorScheme.primary;
     else if(defaultButtonColor == NxColor.accent)
-      fixButtonColor = Theme.of(context).accentColor;
+      fixButtonColor = Theme.of(context).colorScheme.secondary;
     
     Color? fixContentColor;
     if(defaultButtonColor == NxColor.primary)

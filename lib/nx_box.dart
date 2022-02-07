@@ -21,8 +21,8 @@ class NxBox extends StatelessWidget {
   final double? width;
   final double? height;
   final Color? color;
-  final double? padding;
-  final double? margin;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
   final double? borderRadius;
   final Color? borderColor;
   final ImageProvider? image;
@@ -38,8 +38,8 @@ class NxBox extends StatelessWidget {
       child: Container(
         width: width ?? MediaQuery.of(context).size.width,
         height: height,
-        padding: EdgeInsets.all(padding ?? 0),
-        margin: EdgeInsets.all(margin ?? 0),
+        padding: padding ?? EdgeInsets.all(0),
+        margin: margin ?? EdgeInsets.all(0),
         child: child,
         decoration: BoxDecoration(
           color: color,

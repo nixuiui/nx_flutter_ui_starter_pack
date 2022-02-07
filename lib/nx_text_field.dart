@@ -12,8 +12,9 @@ class NxTextFieldBox extends StatelessWidget {
     this.suffixIcon,
     this.isObsecure = false,
     this.textHint,
-    this.textError = "",
-    this.validatorText = "",
+    this.textError = '',
+    this.textSuccess = '',
+    this.validatorText = '',
     this.inputType = TextInputType.text,
     this.controller,
     this.validator,
@@ -22,7 +23,8 @@ class NxTextFieldBox extends StatelessWidget {
     this.iconColor,
     this.textColor,
     this.inputFormatters,
-    this.fontSize = 16,
+    this.fontSize = 14,
+    this.fontWeight = FontWeight.w400,
     this.inputAction,
     this.onFieldSubmitted,
     this.focusNode,
@@ -35,9 +37,9 @@ class NxTextFieldBox extends StatelessWidget {
   final double borderRadius;
   final double padding;
   final TextEditingController? controller;
-  final String? textHint, validatorText, textError;
-  final IconData? icon;
-  final IconData? suffixIcon;
+  final String? textHint, validatorText, textError, textSuccess;
+  final Widget? icon;
+  final Widget? suffixIcon;
   final bool isObsecure;
   final bool enable;
   final TextInputType inputType;
@@ -47,6 +49,7 @@ class NxTextFieldBox extends StatelessWidget {
   final Color? iconColor;
   final Color? textColor;
   final double fontSize;
+  final FontWeight fontWeight;
   final List<TextInputFormatter>? inputFormatters;
   final FocusNode? focusNode;
   final TextInputAction? inputAction;
@@ -61,17 +64,17 @@ class NxTextFieldBox extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          padding: EdgeInsets.all(padding),
+          padding: EdgeInsets.symmetric(horizontal: padding + 4, vertical: padding),
           decoration: BoxDecoration(
             border: Border.all(color: borderColor ?? Colors.grey[300]!),
-            color: backgroundColor ?? Colors.grey[100],
+            color: backgroundColor ?? Colors.white,
             borderRadius: BorderRadius.circular(borderRadius),
             boxShadow: boxShadow,
           ),
           child: Row(
             children: [
               icon != null ? Container(
-                child: Icon(icon, color: iconColor ?? Colors.black12),
+                child: icon,
                 margin: EdgeInsets.only(right: padding),
               ) : Text(''),
               Expanded(
@@ -87,7 +90,7 @@ class NxTextFieldBox extends StatelessWidget {
                   style: TextStyle(
                     color: enable ? (textColor ?? Colors.black87) : Colors.grey,
                     fontSize: fontSize,
-                    fontWeight: FontWeight.w600
+                    fontWeight: fontWeight
                   ),
                   obscureText: isObsecure,
                   keyboardType: inputType,
@@ -108,17 +111,24 @@ class NxTextFieldBox extends StatelessWidget {
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: suffixIconClicked,
-                  child: Icon(suffixIcon, color: Colors.black54)
+                  child: suffixIcon
                 ),
               ) : Container()
             ],
           ),
         ),
-        validatorText != null && validatorText != "" ? Container(
+        validatorText != null && validatorText != '' ? Container(
           padding: EdgeInsets.only(top: 4, left: 4, right: 4),
           child: NxText.error(validatorText!),
         ) : Container(),
-        textError != "" && textError != null ? NxText.error(textError!) : Container()
+        textError != '' && textError != null ? Container(
+          padding: EdgeInsets.only(top: 4),
+          child: NxText.error(textError!),
+        ) : Container(),
+        textSuccess != '' && textSuccess != null ? Container(
+          padding: EdgeInsets.only(top: 4),
+          child: NxText.small(textSuccess!),
+        ) : Container()
       ],
     );
   }

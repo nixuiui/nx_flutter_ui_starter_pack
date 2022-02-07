@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'nx_flutter_ui_starter_pack.dart';
-import 'nx_options.dart';
-import 'nx_text_field.dart';
 
 class NxSelectBox extends StatefulWidget {
   const NxSelectBox({
@@ -35,7 +33,7 @@ class NxSelectBox extends StatefulWidget {
   final bool isLoading;
   final String? text;
   final List<NxOptions>? options;
-  final dynamic? selected;
+  final dynamic selected;
   final ValueChanged<dynamic>? onSelected;
   final IconData? suffixIcon;
   final bool borderBottom;

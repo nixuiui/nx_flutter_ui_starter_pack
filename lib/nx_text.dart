@@ -129,7 +129,7 @@ class NxText extends StatelessWidget {
     if(defaultColor == NxColor.primary)
       fixColor = Theme.of(context).primaryColor;
     else if(defaultColor == NxColor.accent)
-      fixColor = Theme.of(context).accentColor;
+      fixColor = Theme.of(context).colorScheme.secondary;
 
     return onPressed != null ? GestureDetector(
       behavior: HitTestBehavior.translucent,

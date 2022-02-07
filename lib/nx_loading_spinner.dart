@@ -22,7 +22,7 @@ class NxLoadingSpinner extends StatelessWidget {
             child: CircularProgressIndicator(
               strokeWidth: 1.5,
               backgroundColor: Theme.of(context).primaryColor,
-              valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).accentColor),
+              valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.primary),
             ),
           ),
         ),

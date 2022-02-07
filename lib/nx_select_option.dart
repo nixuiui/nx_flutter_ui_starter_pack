@@ -44,13 +44,13 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).appBarTheme.color,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Theme.of(context).appBarTheme.iconTheme?.color),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(widget.title),
-        brightness: Theme.of(context).appBarTheme.brightness,
+        systemOverlayStyle: Theme.of(context).appBarTheme.systemOverlayStyle,
         actions: <Widget>[
           widget.multipleSelect ? 
           IconButton(

@@ -127,7 +127,7 @@ class NxTextFieldBox extends StatelessWidget {
         ) : Container(),
         textSuccess != '' && textSuccess != null ? Container(
           padding: EdgeInsets.only(top: 4),
-          child: NxText.small(textSuccess!),
+          child: NxText.small1(textSuccess!),
         ) : Container()
       ],
     );
@@ -189,7 +189,7 @@ class NxTextFieldBorderBottom extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        label != null ? NxText.formLabel(label ?? '') : Container(),
+        label != null ? NxText.body1(label ?? '') : Container(),
         Container(
           color: Colors.transparent,
           padding: const EdgeInsets.symmetric(vertical: 8),
@@ -333,7 +333,7 @@ class TextAreaBorderBottom extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          label != null ? NxText.formLabel(label!) : Container(),
+          label != null ? NxText.body1(label!) : Container(),
           Container(
             color: Colors.transparent,
             padding: const EdgeInsets.symmetric(vertical: 8),
@@ -438,7 +438,7 @@ class SelectionBorderBottom extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (label != null) label != null ? NxText.formLabel(label!) : Container()
+            if (label != null) label != null ? NxText.body1(label!) : Container()
             else Container(),
             Container(
               height: height ?? 40,

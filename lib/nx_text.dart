@@ -1,33 +1,107 @@
 import 'package:flutter/material.dart';
-import 'package:nx_flutter_ui_starter_pack/nx_enum.dart';
+import 'package:nx_flutter_ui_starter_pack/nx_flutter_ui_starter_pack.dart';
+
+// Montserrat Typography Base On "Alceo - Sirka Design Library"
+// Url https://www.figma.com/file/TZCJW5A2kTVNSNYNoGxeSX/Alceo---Sirka-Design-Library---Mobile-Devices?node-id=5180%3A3114
 
 class NxText extends StatelessWidget {
   final String text;
   final Color? color;
   final double? fontSize;
+  final double? lineHeight;
   final int? maxLines;
   final FontWeight? fontWeight;
   final TextAlign? textAlign;
   final Function? onPressed;
   final NxColor? defaultColor;
-  final TextDecoration? textDecoration;
+  final TextDecoration? decoration;
 
   const NxText(this.text, {
     Key? key,
     this.color = Colors.black87,
     this.fontSize = 14,
-    this.maxLines = 3,
+    this.lineHeight = 1,
+    this.maxLines,
     this.textAlign = TextAlign.left,
     this.fontWeight = FontWeight.normal,
     this.onPressed,
     this.defaultColor,
-    this.textDecoration = TextDecoration.none,
+    this.decoration = TextDecoration.none,
   }) : super(key: key);
 
-  factory NxText.title(String text, {
+  factory NxText.heroTitle(String text, {
     int? maxLines,
     TextAlign? textAlign,
     Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines = 20,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 42,
+    fontWeight: FontWeight.w600,
+    onPressed: onPressed,
+    lineHeight: 1.5,
+  );
+  
+  factory NxText.headline1(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 36,
+    fontWeight: FontWeight.w700,
+    onPressed: onPressed,
+    lineHeight: 1.25,
+  );
+  
+  factory NxText.headline2(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 28,
+    fontWeight: FontWeight.w700,
+    onPressed: onPressed,
+    lineHeight: 1.25,
+  );
+  
+  factory NxText.headline3(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 24,
+    fontWeight: FontWeight.w700,
+    onPressed: onPressed,
+    lineHeight: 1.25,
+  );
+  
+  factory NxText.headline4(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
     Function? onPressed
   }) => NxText(
     text,
@@ -35,91 +109,211 @@ class NxText extends StatelessWidget {
     textAlign: textAlign,
     color: color,
     fontSize: 20,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w700,
     onPressed: onPressed,
+    lineHeight: 1.25,
   );
   
-  factory NxText.subtitle(String text,{
+  factory NxText.headline5(String text, {
     int? maxLines,
     TextAlign? textAlign,
     Color? color,
+    double? lineHeight,
     Function? onPressed
   }) => NxText(
     text,
     maxLines: maxLines,
     textAlign: textAlign,
     color: color,
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
     onPressed: onPressed,
+    lineHeight: 1.5,
   );
   
-  factory NxText.primary(String text, {
-    double? fontSize,
-    FontWeight? fontWeight,
+  factory NxText.headline6(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
     Color? color,
+    double? lineHeight,
     Function? onPressed
   }) => NxText(
     text,
-    fontSize: fontSize,
-    fontWeight: fontWeight,
-    defaultColor: NxColor.primary,
-    onPressed: onPressed,
-  );
-  
-  factory NxText.accent(String text, {
-    double? fontSize,
-    FontWeight? fontWeight,
-    Color? color,
-    Function? onPressed
-  }) => NxText(
-    text,
-    fontSize: fontSize,
-    fontWeight: fontWeight,
-    defaultColor: NxColor.accent,
-    onPressed: onPressed,
-  );
-  
-  factory NxText.error(String text, {
-    double fontSize = 12,
-    FontWeight? fontWeight,
-    Color? color,
-  }) => NxText(
-    text,
-    fontSize: fontSize,
-    fontWeight: fontWeight,
-    color: Colors.red
-  );
-  
-  factory NxText.bold(String text, {
-    Color? color,
-    Function? onPressed
-  }) => NxText(
-    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
     color: color,
-    fontWeight: FontWeight.w600,
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
     onPressed: onPressed,
+    lineHeight: 1.5,
   );
   
-  factory NxText.small(String text, {
+  factory NxText.lead1(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
     Color? color,
+    double? lineHeight,
     Function? onPressed
   }) => NxText(
     text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    onPressed: onPressed,
+    lineHeight: 1.5,
+  );
+  
+  factory NxText.lead2(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    onPressed: onPressed,
+    lineHeight: 1.5,
+  );
+  
+  factory NxText.title(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
     fontSize: 12,
-    color: color,
+    fontWeight: FontWeight.w600,
     onPressed: onPressed,
+    lineHeight: 1.5
+  );
+  
+  factory NxText.subtitle(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    onPressed: onPressed,
+    lineHeight: 1.5,
+  );
+  
+  factory NxText.body1(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 14,
+    fontWeight: FontWeight.w300,
+    onPressed: onPressed,
+    lineHeight: 1.5,
+  );
+  
+  factory NxText.body2(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 12,
+    fontWeight: FontWeight.w300,
+    onPressed: onPressed,
+    lineHeight: 1.5,
+  );
+  
+  factory NxText.small1(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 10,
+    fontWeight: FontWeight.w400,
+    onPressed: onPressed,
+    lineHeight: 1.5,
+  );
+  
+  factory NxText.small2(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    Color? color,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
+    text,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    color: color,
+    fontSize: 8,
+    fontWeight: FontWeight.w400,
+    onPressed: onPressed,
+    lineHeight: 1.5,
   );
 
-  factory NxText.formLabel(String text) => NxText(
+  factory NxText.primary(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
     text,
-    fontSize: 12,
+    maxLines: maxLines,
+    textAlign: textAlign,
+    fontSize: 14,
+    fontWeight: FontWeight.w300,
+    onPressed: onPressed,
+    lineHeight: 1.5,
+    defaultColor: NxColor.primary,
   );
-  
-  factory NxText.formHint(String text) => NxText(
+
+  factory NxText.error(String text, {
+    int? maxLines,
+    TextAlign? textAlign,
+    double? lineHeight,
+    Function? onPressed
+  }) => NxText(
     text,
-    fontSize: 12,
-    color: Colors.grey[700],
+    maxLines: maxLines,
+    textAlign: textAlign,
+    fontSize: 14,
+    fontWeight: FontWeight.w300,
+    onPressed: onPressed,
+    lineHeight: 1.5,
+    defaultColor: NxColor.error,
   );
 
   @override
@@ -130,32 +324,34 @@ class NxText extends StatelessWidget {
       fixColor = Theme.of(context).primaryColor;
     else if(defaultColor == NxColor.accent)
       fixColor = Theme.of(context).colorScheme.secondary;
+    else if(defaultColor == NxColor.error)
+      fixColor = Theme.of(context).colorScheme.error;
 
     return onPressed != null ? GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () => onPressed?.call(),
       child: Text(
         text,
-        maxLines: maxLines,
-        overflow: TextOverflow.ellipsis,
+        maxLines: maxLines ?? DefaultTextStyle.of(context).maxLines,
         textAlign: textAlign,
         style: TextStyle(
+          height: lineHeight,
           color: fixColor ?? color,
           fontSize: fontSize,
           fontWeight: fontWeight,
-          decoration: textDecoration
+          decoration: decoration
         ),
       ),
     ) : Text(
       text,
       maxLines: maxLines,
-      overflow: TextOverflow.ellipsis,
       textAlign: textAlign,
       style: TextStyle(
+        height: lineHeight,
         color: fixColor ?? color,
         fontSize: fontSize,
         fontWeight: fontWeight,
-        decoration: textDecoration
+        decoration: decoration
       ),
     );
   }

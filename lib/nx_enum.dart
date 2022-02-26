@@ -1,1 +1,1 @@
-enum NxColor { primary, accent }
+enum NxColor { primary, accent, error }

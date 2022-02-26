@@ -1,3 +1,15 @@
+## [1.0.2]
+
+- Update NxBox
+
+## [1.0.1]
+
+- Add NxCheckbox
+
+## [1.0.0]
+
+- Update several widget
+
 ## [0.1.18]
 
 - Update multiple select box

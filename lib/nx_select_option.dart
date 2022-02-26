@@ -85,7 +85,7 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
           widget.useFilter ? Divider() : Container(),
           widget.multipleSelect ? ListTile(
             trailing: Icon(Icons.check_circle, color: optionsSelected.length == selectedCount(widget.options) ? Colors.green : Colors.grey[300]),
-            title: NxText.bold("${optionsSelected.length} selected"),
+            title: NxText.lead2("${optionsSelected.length} selected"),
             onTap: () {
               if(optionsSelected.length < widget.options.length) {
                 setState(() {
@@ -146,7 +146,7 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
           child: ListTile(
             trailing: !widget.multipleSelect ? null
               : Icon(Icons.check_circle, color: Colors.green),
-            title: NxText.bold(data.name ?? ''),
+            title: NxText.body1(data.name ?? ''),
             onTap: () {},
           ),
         ),

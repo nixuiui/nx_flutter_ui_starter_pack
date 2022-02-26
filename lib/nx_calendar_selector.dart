@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class UiCalendarSelector extends StatelessWidget {
+class NxCalendarSelector extends StatelessWidget {
 
   final DateTime? initialDate;
   final Function(DateTime)? dateChanged;
   final Widget Function(DateTime?) child;
 
-  const UiCalendarSelector({
+  const NxCalendarSelector({
     Key? key,
     required this.child,
     this.initialDate,

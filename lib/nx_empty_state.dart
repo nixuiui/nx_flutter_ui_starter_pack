@@ -3,8 +3,8 @@ import 'package:nx_flutter_ui_starter_pack/nx_button.dart';
 
 import 'nx_text.dart';
 
-class ExEmptyWidget extends StatelessWidget {
-  const ExEmptyWidget({
+class NxEmptyWidget extends StatelessWidget {
+  const NxEmptyWidget({
     Key? key,
     this.image,
     this.title,
@@ -65,7 +65,7 @@ class ExEmptyWidget extends StatelessWidget {
             onActionClicked != null || buttonText != null ? NxButton(
               isLoading: isLoading ?? false,
               color: buttonColor ?? Theme.of(context).colorScheme.primary,
-              text: buttonText ?? 'Button',
+              child: NxText(buttonText ?? 'Button'),
               onPressed: onActionClicked != null ? onActionClicked!.call : null
             ) : SizedBox.shrink()
           ),

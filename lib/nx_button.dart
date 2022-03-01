@@ -3,7 +3,6 @@ import 'package:nx_flutter_ui_starter_pack/nx_enum.dart';
 import 'package:nx_flutter_ui_starter_pack/nx_loading_spinner.dart';
 
 class NxButton extends StatelessWidget {
-  final String? text;
   final VoidCallback? onPressed;
   final double? width;
   final double? padding;
@@ -13,14 +12,15 @@ class NxButton extends StatelessWidget {
   final Color? borderColor;
   final Color? iconColor;
   final Color? textColor;
-  final IconData? icon;
+  final IconData? leftIcon;
+  final IconData? rightIcon;
   final double? elevation;
   final double? radius;
   final bool isLoading;
+  final Widget? child;
 
   const NxButton({
     Key? key,
-    this.text,
     this.onPressed,
     this.width,
     this.padding,
@@ -30,54 +30,60 @@ class NxButton extends StatelessWidget {
     this.borderColor = Colors.white,
     this.iconColor = Colors.black54,
     this.textColor = Colors.black54,
-    this.icon,
+    this.leftIcon,
+    this.rightIcon,
     this.elevation = 0,
     this.radius,
-    this.isLoading = false
+    this.isLoading = false,
+    this.child,
   }) : super(key: key);
 
   factory NxButton.primary({
-    String? text,
     VoidCallback? onPressed,
     double? width,
     double? padding,
     double? fontSize,
-    IconData? icon,
+    IconData? leftIcon,
+    IconData? rightIcon,
     double? radius,
-    bool? isLoading = false
+    bool? isLoading = false,
+    Widget? child,
   }) => NxButton(
     onPressed: onPressed,
     width: width,
     padding: padding,
     fontSize: fontSize,
-    icon: icon,
-    text: text,
+    leftIcon: leftIcon,
+    rightIcon: rightIcon,
     defaultButtonColor: NxColor.primary,
     iconColor: Colors.white,
     radius: radius,
     isLoading: isLoading ?? false, 
+    child: child, 
   );
   
   factory NxButton.accent({
-    String? text,
     VoidCallback? onPressed,
     double? width,
     double? padding,
     double? fontSize,
-    IconData? icon,
+    IconData? leftIcon,
+    IconData? rightIcon,
     double? radius,
-    bool isLoading = false
+    bool isLoading = false,
+    Widget? child,
   }) => NxButton(
     onPressed: onPressed,
     width: width,
     padding: padding,
     fontSize: fontSize,
-    icon: icon,
-    text: text,
+    leftIcon: leftIcon,
+    rightIcon: rightIcon,
     defaultButtonColor: NxColor.accent,
     iconColor: Colors.white,
     radius: radius,
-    isLoading: isLoading
+    isLoading: isLoading,
+    child: child,
   );
 
   @override
@@ -106,29 +112,24 @@ class NxButton extends StatelessWidget {
             side: BorderSide(color: fixButtonColor ?? borderColor!, width: 1),
           )),
           padding: MaterialStateProperty.all(EdgeInsets.all(padding ?? 12)),
-          textStyle: MaterialStateProperty.all(TextStyle(
-            color: Colors.white,
-          )),
           backgroundColor: MaterialStateProperty.all(fixButtonColor ?? color)
         ),
         child: isLoading ? NxLoadingSpinner(
           size: fontSize != null ? fontSize! + 4 : 16
         ) : Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            icon != null ? Container(
-              margin: EdgeInsets.only(right: text != null ? 8 : 0),
-              child: Icon(icon, color: fixContentColor ?? iconColor, size: fontSize != null ? fontSize! + 4 : 16),
-            ) : Container(height: 0),
-            Text(
-              text ?? "", 
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: fontSize ?? 16,
-                color: fixContentColor ?? textColor
-              )
-            ),
+            
+            leftIcon != null ? Container(
+              child: Icon(leftIcon, color: fixContentColor ?? iconColor, size: fontSize != null ? fontSize! + 4 : 16),
+            ) : SizedBox.shrink(),
+
+            if(child != null) child!,
+
+            rightIcon != null ? Container(
+              child: Icon(rightIcon, color: fixContentColor ?? iconColor, size: fontSize != null ? fontSize! + 4 : 16),
+            ) : SizedBox.shrink(),
+
           ],
         ),
       ),

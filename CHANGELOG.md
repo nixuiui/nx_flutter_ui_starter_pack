@@ -1,3 +1,7 @@
+## [1.0.4]
+
+- Update NxButton, NxEmptyState
+
 ## [1.0.3]
 
 - Update NxButton, NxEmptyState

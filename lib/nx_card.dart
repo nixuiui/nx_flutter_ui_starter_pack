@@ -30,12 +30,12 @@ class NxCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               if(title != null) Container(
-                margin: EdgeInsets.only(bottom: 16),
+                margin: EdgeInsets.only(bottom: child != null ? 16 : 0),
                 child: title,
               ),
               if(actions != null) Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(bottom: 16),
+                  margin: EdgeInsets.only(bottom: child != null ? 16 : 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: actions ?? [],

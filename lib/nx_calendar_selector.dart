@@ -16,12 +16,10 @@ class NxCalendarSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    var initialDate = this.initialDate ?? DateTime.now();
-    
     void _showCalendar() async{
       final picker = await showDatePicker(
         context: context,
-        initialDate: initialDate,
+        initialDate: initialDate ?? DateTime.now(),
         firstDate: DateTime(1950),
         lastDate: DateTime.now(),
         builder: (context, child) {

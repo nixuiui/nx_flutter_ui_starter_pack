@@ -32,6 +32,7 @@ class NxTextFieldBox extends StatelessWidget {
     this.onChanged,
     this.suffixIconClicked,
     this.boxShadow,
+    this.textAlign = TextAlign.start,
   }) : super(key: key);
 
   final double borderRadius;
@@ -57,6 +58,7 @@ class NxTextFieldBox extends StatelessWidget {
   final Function(String)? onFieldSubmitted;
   final VoidCallback? suffixIconClicked;
   final List<BoxShadow>? boxShadow;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -95,6 +97,7 @@ class NxTextFieldBox extends StatelessWidget {
                   obscureText: isObsecure,
                   keyboardType: inputType,
                   validator: validator,
+                  textAlign: textAlign,
                   decoration: InputDecoration.collapsed(
                     hintText: textHint,
                     border: InputBorder.none,

@@ -1,3 +1,11 @@
+## [1.0.6]
+
+- Update NxCalendarSelector
+
+## [1.0.5]
+
+- Add TextAlign in NxTextFielBox
+
 ## [1.0.4]
 
 - Update NxButton, NxEmptyState

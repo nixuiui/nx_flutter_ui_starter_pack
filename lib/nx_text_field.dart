@@ -78,7 +78,7 @@ class NxTextFieldBox extends StatelessWidget {
           child: Row(
             children: [
               if(prefix != null) Container(
-                margin: EdgeInsets.only(left: 8),
+                margin: EdgeInsets.only(right: 8),
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: prefixClicked,

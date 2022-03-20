@@ -13,7 +13,7 @@ class NxSelectBox extends StatefulWidget {
     this.textError,
     this.options,
     this.selected,
-    this.suffixIcon,
+    this.suffix,
     this.borderRadius,
     this.borderColor,
     this.boxShadow,
@@ -35,7 +35,7 @@ class NxSelectBox extends StatefulWidget {
   final List<NxOptions>? options;
   final dynamic selected;
   final ValueChanged<dynamic>? onSelected;
-  final IconData? suffixIcon;
+  final IconData? suffix;
   final bool borderBottom;
   final bool multipleSelect;
   final double? height;
@@ -63,7 +63,7 @@ class _NxSelectBoxState extends State<NxSelectBox> {
         widget.selected is NxOptions ? widget.selected?.name ?? "" : getListSelectedAsText()
       ) : (widget.text ?? "Select"),
       isSelected: widget.selected != null,
-      suffixIcon: widget.suffixIcon,
+      suffix: widget.suffix,
       borderBottom: widget.borderBottom,
       height: widget.height,
       padding: widget.padding,

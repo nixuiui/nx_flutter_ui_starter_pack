@@ -8,8 +8,10 @@ class NxTextFieldBox extends StatelessWidget {
     Key? key,
     this.borderRadius = 8,
     this.padding = 8,
-    this.icon,
-    this.suffixIcon,
+    this.prefix,
+    this.prefixClicked,
+    this.suffix,
+    this.suffixClicked,
     this.isObsecure = false,
     this.textHint,
     this.textError = '',
@@ -30,7 +32,6 @@ class NxTextFieldBox extends StatelessWidget {
     this.focusNode,
     this.enable = true,
     this.onChanged,
-    this.suffixIconClicked,
     this.boxShadow,
     this.textAlign = TextAlign.start,
   }) : super(key: key);
@@ -39,8 +40,10 @@ class NxTextFieldBox extends StatelessWidget {
   final double padding;
   final TextEditingController? controller;
   final String? textHint, validatorText, textError, textSuccess;
-  final Widget? icon;
-  final Widget? suffixIcon;
+  final Widget? prefix;
+  final VoidCallback? prefixClicked;
+  final Widget? suffix;
+  final VoidCallback? suffixClicked;
   final bool isObsecure;
   final bool enable;
   final TextInputType inputType;
@@ -56,7 +59,6 @@ class NxTextFieldBox extends StatelessWidget {
   final TextInputAction? inputAction;
   final Function(String)? onChanged;
   final Function(String)? onFieldSubmitted;
-  final VoidCallback? suffixIconClicked;
   final List<BoxShadow>? boxShadow;
   final TextAlign textAlign;
 
@@ -75,10 +77,14 @@ class NxTextFieldBox extends StatelessWidget {
           ),
           child: Row(
             children: [
-              icon != null ? Container(
-                child: icon,
-                margin: EdgeInsets.only(right: padding),
-              ) : Text(''),
+              if(prefix != null) Container(
+                margin: EdgeInsets.only(left: 8),
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: prefixClicked,
+                  child: prefix
+                ),
+              ),
               Expanded(
                 child: TextFormField(
                   controller: controller,
@@ -109,12 +115,12 @@ class NxTextFieldBox extends StatelessWidget {
                   ),
                 ),
               ),
-              suffixIcon != null ? Container(
+              suffix != null ? Container(
                 margin: EdgeInsets.only(left: 8),
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  onTap: suffixIconClicked,
-                  child: suffixIcon
+                  onTap: suffixClicked,
+                  child: suffix
                 ),
               ) : Container()
             ],
@@ -141,7 +147,7 @@ class NxTextFieldBorderBottom extends StatelessWidget {
   const NxTextFieldBorderBottom({
     Key? key,
     this.icon,
-    this.suffixIcon,
+    this.suffix,
     this.maxLength = 100,
     this.isObsecure = false,
     this.textHint,
@@ -160,13 +166,13 @@ class NxTextFieldBorderBottom extends StatelessWidget {
     this.focusNode,
     this.onChanged,
     this.inputFormatters,
-    this.suffixIconClicked
+    this.suffixClicked
   }) : super(key: key);
 
   final TextEditingController? controller;
   final String? textHint, validatorText, label, textError;
   final IconData? icon;
-  final IconData? suffixIcon;
+  final IconData? suffix;
   final int maxLength;
   final bool isObsecure;
   final bool enable;
@@ -180,7 +186,7 @@ class NxTextFieldBorderBottom extends StatelessWidget {
   final Function(String)? onFieldSubmitted;
   final Function(String)? onChanged;
   final List<TextInputFormatter>? inputFormatters;
-  final VoidCallback? suffixIconClicked;
+  final VoidCallback? suffixClicked;
 
   @override
   Widget build(BuildContext context) {
@@ -231,11 +237,11 @@ class NxTextFieldBorderBottom extends StatelessWidget {
                   ),
                 ),
               ),
-              suffixIcon != null
+              suffix != null
                   ? GestureDetector(
                       behavior: HitTestBehavior.translucent,
-                      onTap: suffixIconClicked,
-                      child: Icon(suffixIcon, color: Colors.black54))
+                      onTap: suffixClicked,
+                      child: Icon(suffix, color: Colors.black54))
                   : Container()
             ],
           ),
@@ -260,7 +266,7 @@ class TextAreaBorderBottom extends StatelessWidget {
   const TextAreaBorderBottom({
     Key? key,
     this.icon,
-    this.suffixIcon,
+    this.suffix,
     this.maxLength = 100,
     this.maxLines = 10,
     this.minLines = 1,
@@ -293,7 +299,7 @@ class TextAreaBorderBottom extends StatelessWidget {
   final TextEditingController? controller;
   final String? label, textHint, validatorText, textError;
   final IconData? icon;
-  final IconData? suffixIcon;
+  final IconData? suffix;
   final int maxLength;
   final int maxLines;
   final int minLines;
@@ -395,7 +401,7 @@ class SelectionBorderBottom extends StatelessWidget {
     this.label,
     this.textError,
     this.isSelected = false,
-    this.suffixIcon,
+    this.suffix,
     this.borderRadius,
     this.borderColor,
     this.boxShadow,
@@ -414,7 +420,7 @@ class SelectionBorderBottom extends StatelessWidget {
   final String? text;
   final bool isSelected;
   final VoidCallback? onTap;
-  final IconData? suffixIcon;
+  final IconData? suffix;
   final bool borderBottom;
   final double? height;
   final double? padding;
@@ -464,7 +470,7 @@ class SelectionBorderBottom extends StatelessWidget {
                       ),
                     )
                   ),
-                  Icon(suffixIcon ?? Icons.arrow_drop_down)
+                  Icon(suffix ?? Icons.arrow_drop_down)
                 ],
               ),
             ),

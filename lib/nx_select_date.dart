@@ -40,7 +40,7 @@ class _NxSelectDateState extends State<NxSelectDate> {
       isLoading: widget.isLoading,
       text: widget.text,
       isSelected: widget.initialDate != null,
-      suffixIcon: Icons.calendar_today,
+      suffix: Icons.calendar_today,
       onTap: () => selectDate(context),
     );
   }

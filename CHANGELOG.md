@@ -1,3 +1,7 @@
+## [1.0.7]
+
+- Update prefix & suffix NxTextFieldBox
+
 ## [1.0.6]
 
 - Update NxCalendarSelector

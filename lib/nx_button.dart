@@ -100,6 +100,9 @@ class NxButton extends StatelessWidget {
       fixContentColor = Colors.white;
     else if(defaultButtonColor == NxColor.accent)
       fixContentColor = Colors.white;
+    
+    if(onPressed == null) 
+      fixButtonColor = fixButtonColor?.withOpacity(0.5);
 
     return Container(
       width: width ?? MediaQuery.of(context).size.width,

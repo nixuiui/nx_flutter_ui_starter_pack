@@ -1,3 +1,7 @@
+## [1.0.9]
+
+- Update disabled button color
+
 ## [1.0.8]
 
 - Update prefix & suffix NxTextFieldBox

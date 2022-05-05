@@ -1,3 +1,7 @@
+## [1.1.0]
+
+- Add NxOptionsSelector
+
 ## [1.0.9]
 
 - Update disabled button color

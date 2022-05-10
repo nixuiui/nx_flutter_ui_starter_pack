@@ -1,3 +1,7 @@
+## [1.1.1]
+
+- Add overflow param on NxText
+
 ## [1.1.0]
 
 - Add NxOptionsSelector

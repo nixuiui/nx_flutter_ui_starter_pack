@@ -15,6 +15,7 @@ class NxText extends StatelessWidget {
   final Function? onPressed;
   final NxColor? defaultColor;
   final TextDecoration? decoration;
+  final TextOverflow? overflow;
 
   const NxText(this.text, {
     Key? key,
@@ -27,10 +28,12 @@ class NxText extends StatelessWidget {
     this.onPressed,
     this.defaultColor,
     this.decoration = TextDecoration.none,
+    this.overflow,
   }) : super(key: key);
 
   factory NxText.heroTitle(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -38,6 +41,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines = 20,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 42,
@@ -48,6 +52,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.headline1(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -55,6 +60,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 36,
@@ -65,6 +71,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.headline2(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -72,6 +79,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 28,
@@ -82,6 +90,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.headline3(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -89,6 +98,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 24,
@@ -99,6 +109,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.headline4(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -106,6 +117,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 20,
@@ -116,6 +128,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.headline5(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -123,6 +136,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 16,
@@ -133,6 +147,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.headline6(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -140,6 +155,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 14,
@@ -150,6 +166,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.lead1(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -157,6 +174,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 16,
@@ -167,6 +185,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.lead2(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -174,6 +193,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 14,
@@ -184,6 +204,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.title(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -191,6 +212,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 12,
@@ -201,6 +223,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.subtitle(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -208,6 +231,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 12,
@@ -218,6 +242,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.body1(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -225,6 +250,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 14,
@@ -235,6 +261,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.body2(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -242,6 +269,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 12,
@@ -252,6 +280,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.small1(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -259,6 +288,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 10,
@@ -269,6 +299,7 @@ class NxText extends StatelessWidget {
   
   factory NxText.small2(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     Color? color,
     double? lineHeight,
@@ -276,6 +307,7 @@ class NxText extends StatelessWidget {
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     color: color,
     fontSize: 8,
@@ -286,12 +318,14 @@ class NxText extends StatelessWidget {
 
   factory NxText.primary(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     double? lineHeight,
     Function? onPressed
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     fontSize: 14,
     fontWeight: FontWeight.w300,
@@ -302,12 +336,14 @@ class NxText extends StatelessWidget {
 
   factory NxText.error(String text, {
     int? maxLines,
+    TextOverflow? overflow,
     TextAlign? textAlign,
     double? lineHeight,
     Function? onPressed
   }) => NxText(
     text,
     maxLines: maxLines,
+    overflow: overflow,
     textAlign: textAlign,
     fontSize: 14,
     fontWeight: FontWeight.w300,
@@ -333,25 +369,29 @@ class NxText extends StatelessWidget {
       child: Text(
         text,
         maxLines: maxLines ?? DefaultTextStyle.of(context).maxLines,
+        overflow: overflow,
         textAlign: textAlign,
         style: TextStyle(
           height: lineHeight,
           color: fixColor ?? color,
           fontSize: fontSize,
           fontWeight: fontWeight,
-          decoration: decoration
+          decoration: decoration,
+          overflow: overflow,
         ),
       ),
     ) : Text(
       text,
       maxLines: maxLines,
+      overflow: overflow,
       textAlign: textAlign,
       style: TextStyle(
         height: lineHeight,
         color: fixColor ?? color,
         fontSize: fontSize,
         fontWeight: fontWeight,
-        decoration: decoration
+        decoration: decoration,
+        overflow: overflow,
       ),
     );
   }

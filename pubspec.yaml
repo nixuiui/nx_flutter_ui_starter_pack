@@ -1,6 +1,6 @@
 name: nx_flutter_ui_starter_pack
 description: A flutter package for ui starter pack.
-version: 1.1.1
+version: 1.1.2
 homepage: https://github.com/nixuiui/nx_flutter_ui_starter_pack
 
 environment:

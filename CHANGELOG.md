@@ -1,3 +1,7 @@
+## [1.1.2]
+
+- Expanded text in select item
+
 ## [1.1.1]
 
 - Add overflow param on NxText

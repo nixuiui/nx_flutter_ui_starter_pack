@@ -197,7 +197,7 @@ class _NxSelectOptionsState extends State<NxSelectOptions> {
               height: 40,
             ) : Container(),
           ) : Container(),
-          Text(item.name ?? ''),
+          Expanded(child: Text(item.name ?? '')),
         ],
       ),
       onTap: () {

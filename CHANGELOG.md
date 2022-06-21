@@ -1,3 +1,7 @@
+## [1.1.3]
+
+- Add fontStyle in Text
+
 ## [1.1.2]
 
 - Expanded text in select item

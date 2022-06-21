@@ -16,6 +16,7 @@ class NxText extends StatelessWidget {
   final NxColor? defaultColor;
   final TextDecoration? decoration;
   final TextOverflow? overflow;
+  final FontStyle? fontStyle;
 
   const NxText(this.text, {
     Key? key,
@@ -29,6 +30,7 @@ class NxText extends StatelessWidget {
     this.defaultColor,
     this.decoration = TextDecoration.none,
     this.overflow,
+    this.fontStyle,
   }) : super(key: key);
 
   factory NxText.heroTitle(String text, {
@@ -378,6 +380,7 @@ class NxText extends StatelessWidget {
           fontWeight: fontWeight,
           decoration: decoration,
           overflow: overflow,
+          fontStyle: fontStyle,
         ),
       ),
     ) : Text(
@@ -392,6 +395,7 @@ class NxText extends StatelessWidget {
         fontWeight: fontWeight,
         decoration: decoration,
         overflow: overflow,
+        fontStyle: fontStyle,
       ),
     );
   }
